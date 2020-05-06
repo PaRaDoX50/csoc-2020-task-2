@@ -19,7 +19,16 @@
     <dt>MRP:</dt>
     <dd>Rs. {{ book.mrp }}</dd>
     <dt>Available Copies:</dt>
-    <dd>{{ num_available }}</dd>
+	<dd>{{ num_available }}</dd>
+	{% if user.is_authenticated %}
+	{% if issued %}
+	<dd><a href="/books/{{ book.id }}/rate">Rate this book</a></dd>
+	{% else %}
+	<dd>You can't rate this book because you have not issued it.</dd>
+	{%endif%}
+	{% else %}
+	<dd>You need to login to rate a book.</dd>
+	{%endif%}
 </dl>
 <button class="btn btn-primary" id="loan-button">Loan {{ book.title }}</button>
 <script>
@@ -35,6 +44,7 @@ $("#loan-button").click(function(){
                 alert("Book successfully issued");
                 window.location.replace("/books/loaned");
 			}
+			
 			else{
 				alert("Unable to issue this book");
 			}

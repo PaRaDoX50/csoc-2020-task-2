@@ -8,4 +8,6 @@ urlpatterns = [
     path('books/loaned/', viewLoanedBooks, name="view-loaned"),
     path('books/loan/', loanBookView, name="loan-book"),
     path('books/return/', returnBookView, name="return-book"),
+    path('books/<int:bid>/rate',rateBook,name="rate-book")
+    
 ]

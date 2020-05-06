@@ -1,0 +1,9 @@
+{% extends "store/base.html" %}
+{%block content%}
+<h3>Rate {{title}}</h3>
+<form method="POST">
+{% csrf_token %}
+{{form.as_p}}
+<button type="submit">Rate</button>
+</form>
+{%endblock content%}
