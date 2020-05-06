@@ -1,6 +1,6 @@
-from django.shortcuts import render
+
 from django.shortcuts import get_object_or_404
-from store.models import *
+
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -14,7 +14,7 @@ from django.shortcuts import render, redirect
 import datetime
 from store import forms
 
-from itertools import chain
+
 
 
 # Create your views here.
